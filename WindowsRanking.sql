@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[RankingTable](
 ) 
 GO
 
-INSERT INTO [RankingTable]
+INSERT INTO [dbo].[RankingTable]
            ([Name]
            ,[Sales]
            ,[Location])
@@ -34,10 +34,10 @@ INSERT INTO [RankingTable]
 		   ('Ewan',11000,'East')
 GO
 
-DROP TABLE IF EXISTS dbo.RegionalSales;
+DROP TABLE IF EXISTS [dbo].RegionalSales;
 GO
 
-CREATE TABLE RegionalSales(
+CREATE TABLE [dbo].RegionalSales(
 	SalesID		INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	SalesTeam	NVARCHAR(50) NOT NULL,
 	Country		NVARCHAR(50) NOT NULL,
@@ -46,7 +46,9 @@ CREATE TABLE RegionalSales(
 GO
    
 INSERT INTO RegionalSales 
-	(SalesTeam, Country, AnnualSales)
+	(SalesTeam, 
+		Country, 
+		AnnualSales)
 VALUES
 	('America', 'States', 30000),
 	('America', 'Canada', 21000),
@@ -64,22 +66,47 @@ VALUES
 GO
 
 -- Difference between RANK and DENSE_RANK
-SELECT [name],sales,[location], RANK() OVER (ORDER BY sales ASC) AS Sales_Rank FROM RankingTable
-SELECT [name],sales,[location], DENSE_RANK() OVER (ORDER BY sales ASC) AS Sales_Rank FROM RankingTable
+SELECT [Name],
+	Sales,
+	[location], 
+	RANK() OVER (ORDER BY Sales ASC) AS Sales_Rank 
+FROM RankingTable
+
+SELECT [Name]
+	,Sales
+	,[location], 
+	DENSE_RANK() OVER (ORDER BY Sales ASC) AS Sales_Rank 
+FROM RankingTable
 
 --Including Partition, to partition based on location. each location will be seperated then will be sorted.
-SELECT [name],sales,[location], RANK() OVER (PARTITION BY [location] ORDER BY sales ASC) AS Sales_Rank FROM RankingTable
+SELECT [Name],
+	Sales,
+	[location], 
+	RANK() OVER (PARTITION BY [location] ORDER BY Sales ASC) AS Sales_Rank 
+FROM RankingTable
 
 
 --ROW_NUMBER() provides the number based on the position of the record in the resultset.
 -- PARTITION BY, groups the data based on the Partitioned field. 
-SELECT [name],sales,[location], ROW_NUMBER() OVER (PARTITION BY [location] ORDER BY sales ASC) AS Sales_Rank FROM RankingTable
+SELECT [name],
+	Sales,
+	[location], 
+	ROW_NUMBER() OVER (PARTITION BY [location] ORDER BY Sales ASC) AS Sales_Rank 
+FROM RankingTable
 
 --NTILE divides the results set to even sections. 
-SELECT NTILE(3) OVER (ORDER BY sales ASC) AS Sales_Rank, [name],sales,[location]  FROM RankingTable
+SELECT NTILE(3) OVER (ORDER BY Sales ASC) AS Sales_Rank, 
+	[name],
+	Sales,
+	[location]  
+FROM RankingTable
 
 --Notice the difference when Including PARTITION BY
-SELECT NTILE(3) OVER (PARTITION BY [location] ORDER BY sales ASC) AS Sales_Rank, [name],sales,[location]  FROM RankingTable
+SELECT NTILE(3) OVER (PARTITION BY [location] ORDER BY Sales ASC) AS Sales_Rank, 
+	[name],
+	Sales,
+	[location]  
+FROM RankingTable
 
 
 -- One easy way to create a report based on AnnualSales
