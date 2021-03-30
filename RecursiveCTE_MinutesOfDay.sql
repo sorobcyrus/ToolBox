@@ -1,7 +1,8 @@
 /***************************************************************************************************
 Create Date:    2021-03-01 
 Author:         Sorob Cyrus
-Description:    With Recursion, you can create simple Time Dimensions for your Data warehousing needs  
+Description:    With Recursion, we can create simple Minute by minute reference table
+				This can also be expanded to Hours, days, weeks, etc. 
 ****************************************************************************************************/
 
 ;WITH MinuteCTE ([Time]) AS
