@@ -26,7 +26,7 @@ INSERT INTO [RankingTable]
 		   ('Simon',15000,'South'),
 		   ('Steve',10000,'South'),
 		   ('Sanyai',11000,'South'),
-           ('Wes',10000,'West'),
+		   ('Wes',10000,'West'),
 		   ('William',12000,'West'),
 		   ('Wilma',12000,'West'),
 		   ('Ed',15000,'East'),
