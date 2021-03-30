@@ -1,2 +1,4 @@
 # ToolBox
- Soon to be... A few code blocks for SQL Server DDL, etc. 
+ 
+ ## I am using this reporsitory to share some of my SQL skills with present and future firends.
+ 
