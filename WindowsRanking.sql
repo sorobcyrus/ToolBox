@@ -20,7 +20,7 @@ INSERT INTO [RankingTable]
            ,[Sales]
            ,[Location])
      VALUES
-           ('Nathan',10000,'North'),
+		('Nathan',10000,'North'),
 		   ('Norma',12000,'North'),
 		   ('Sam',12000,'South'),
 		   ('Simon',15000,'South'),
@@ -48,19 +48,19 @@ GO
 INSERT INTO RegionalSales 
 	(SalesTeam, Country, AnnualSales)
 VALUES
-('America', 'States', 30000),
-('America', 'Canada', 21000),
-('America', 'Mexico', 18000),
-('Europe', 'France', 19000),
-('Europe', 'Germany', 22000),
-('Europe', 'UK', 18000),
-('Europe', 'Cyprus', 16000),
-('Europe', 'Spain', 16000),
-('Europe', 'Turkey', 12000),
-('Asia', 'China', 33000),
-('Asia', 'Singapore', 24000),
-('Asia', 'Thailand', 18000),
-('Asia', 'Japan', 24000);
+	('America', 'States', 30000),
+	('America', 'Canada', 21000),
+	('America', 'Mexico', 18000),
+	('Europe', 'France', 19000),
+	('Europe', 'Germany', 22000),
+	('Europe', 'UK', 18000),
+	('Europe', 'Cyprus', 16000),
+	('Europe', 'Spain', 16000),
+	('Europe', 'Turkey', 12000),
+	('Asia', 'China', 33000),
+	('Asia', 'Singapore', 24000),
+	('Asia', 'Thailand', 18000),
+	('Asia', 'Japan', 24000);
 GO
 
 -- Difference between RANK and DENSE_RANK
