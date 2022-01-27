@@ -1,4 +1,4 @@
 # ToolBox
  
- ## I am using this reporsitory to share some of my SQL skills with present and future friends.
+ #### A very small number of SQL code to share with friends. There will be more soon.
  
